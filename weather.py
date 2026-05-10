@@ -68,7 +68,7 @@ def get_history(city):
 # -----------------------------
 st.title("🌤️ Ứng dụng dự đoán thời tiết Việt Nam")
 
-cities = ["Hà Nội", "Đà Nẵng", "Thành phố Hồ Chí Minh", "Huế", "Cần Thơ","Hải Phòng"," GJóng Nai"]
+cities = ["Hà Nội", "Đà Nẵng", "Thành phố Hồ Chí Minh", "Huế", "Cần Thơ","Hải Phòng","Tinh GJóng Nai"]
 city = st.selectbox("Chọn thành phố:", cities)
 
 if st.button("🔍 Xem thời tiết"):
