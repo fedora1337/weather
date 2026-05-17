@@ -67,9 +67,15 @@ def get_history(city):
 # Giao diện chính
 # -----------------------------
 st.title("🌤️ Ứng dụng dự đoán thời tiết Việt Nam")
-citytextinput = st.text_input("Nhập tên thành phố:", "")
+if "citytextinput" not in st.session_state:
+    st.session_state.citytextinput = ""
+
+# Hàm reset text_input khi selectbox thay đổi
+def on_select_change():
+    st.session_state.citytextinput = ""   # reset về rỗng
+citytextinput = st.text_input("Nhập tên thành phố:", "", key="citytextinput")
 cities = ["Hà Nội", "Đà Nẵng", "Thành phố Hồ Chí Minh", "Huế", "Cần Thơ","Hải Phòng"]
-cityselectbox = st.selectbox("Thành phố đề xuất:", cities)
+cityselectbox = st.selectbox("Thành phố đề xuất:", cities,on_change=on_select_change)
 
 # Sử dụng thành phố từ input hoặc selectbox
 city = citytextinput if citytextinput.strip()!="" else cityselectbox
